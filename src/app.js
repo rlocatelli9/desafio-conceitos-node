@@ -52,10 +52,7 @@ app.post("/repositories", (request, response) => {
 
   repositories.push(repo)
   
-  return response.json({
-    message: true,
-    repo
-  })
+  return response.json(repo)
 });
 
 app.put("/repositories/:id", (request, response) => {
@@ -80,10 +77,7 @@ app.put("/repositories/:id", (request, response) => {
 
   repositories[index] = repo
 
-  return response.json({
-    message: true,
-    repo 
-  })
+  return response.json(repo)
 
 });
 
@@ -100,9 +94,7 @@ app.delete("/repositories/:id", (request, response) => {
 
   repositories.splice(index, 1)
 
-  return response.json({
-    message: true
-  })
+  return response.status(204).send()
 });
 
 app.post("/repositories/:id/like", (request, response) => {
